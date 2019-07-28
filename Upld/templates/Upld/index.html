@@ -12,9 +12,11 @@
   <div class = "container_content">
   {% for device in devices %}
     <div>
+      <ul>
       {% for key, item in device.items %}
-        {{ key }}: {{ item }}
+          <li>{{ key }}: {{ item }}</li>
       {% endfor%}
+      <ul>
     </div>
   {% endfor %}
   </div>
