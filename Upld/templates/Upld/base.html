@@ -1,10 +1,16 @@
 <html>
 
-<div>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'Upld/style.css' %}"></link>
 
+<body>
+<div class = "top_bar">
+    <h2> PiUpld </h2>
 </div>
 
+<div class = "main_content">
 {% block content %}
 {% endblock content %}
-
+</div>
+</body>
 </html>

@@ -1,0 +1,50 @@
+
+
+.top_bar {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(40,40,50,1);
+  padding-left: 20px;
+}
+
+.main_content {
+  padding:20px;
+}
+
+body {
+  background-color: rgb(60, 60, 70, 1);
+  margin: 0px;
+}
+
+text, h1, h2 {
+  font-family: Verdana,sans-serif;
+  color: rgb(256, 256, 256, 1);
+}
+
+.main_window {
+  display:flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.container {
+  margin: 20px;
+  display: block;
+  border: 2px solid rgb(125, 125, 150, 1);
+  border-radius: 4px;
+  color: white;
+  font-family: Verdana,sans-serif;
+  text-align: center;
+}
+.container_content {
+  padding: 20px;
+}
+
+.container_title {
+  background-color: rgb(50,50,60,1);
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid white;
+
+
+}
