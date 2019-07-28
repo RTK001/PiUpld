@@ -6,11 +6,17 @@
 
 <div class = "container">
   <div class = "container_title">
-  Stuff
+  Boards
   </div>
 
   <div class = "container_content">
-  text for container!
+  {% for device in devices %}
+    <div>
+      {% for key, item in device.items %}
+        {{ key }}: {{ item }}
+      {% endfor%}
+    </div>
+  {% endfor %}
   </div>
 </div>
 
