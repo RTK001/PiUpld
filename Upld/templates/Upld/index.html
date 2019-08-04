@@ -2,6 +2,7 @@
 {% extends 'Upld/base.html' %}
 {% block content %}
 
+
 <div class = "main_window">
 
 <div class = "container">
@@ -24,11 +25,19 @@
 
 <div class = "container">
   <div class = "container_title">
-  Stuff2
+  Project
   </div>
 
   <div class = "container_content">
-  text for container!
+    <ul>
+   {% for project in githubproject_list %}
+
+        <li> {{ project.name }} </li>
+
+   {% endfor %}
+   </ul>
+
+   <button onclick="hideOrUnhide('addproject_modal', 'block')"> Add Project </button>
   </div>
 </div>
 
@@ -42,4 +51,17 @@
 </div>
 
 </div>
+
+<div class = "modal_overlay"
+      id="addproject_modal"
+      onclick="hideOrUnhide('addproject_modal', 'block')"
+      style:"display:none;">
+<div class="modal_box">
+  <form method = "post" action="{% url 'Upld:ProjectCreateView' %}">
+    {% csrf_token %}
+    <input type="submit" value="Add"></input>
+  </form>
+ </div>
+</div>
+
 {% endblock content %}

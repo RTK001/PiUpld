@@ -11,7 +11,7 @@ def get_devices():
         if len(output) == 0:
             return [{"Error": "No Devices Found"}]
         for device in output:
-            device['Hardware ID'] = device.pop('hwid').split(" ")
+            device['Hardware ID'] = "</br>".join(device.pop('hwid').split(" "))
             device['Port'] = device.pop('port')
             device['Description'] = device.pop('description')
         return output
