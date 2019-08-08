@@ -22,3 +22,4 @@ class IndexView(generic.ListView):
 
 class ProjectCreateView(generic.edit.CreateView):
     form_class = NewProjectForm
+    template_name = "Upld/ProjectCreate.html"
