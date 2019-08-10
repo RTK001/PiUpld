@@ -37,6 +37,7 @@
    {% endfor %}
    </ul>
 
+
    <button onclick="hideOrUnhide('addproject_modal', 'block')"> Add Project </button>
   </div>
 </div>
@@ -59,10 +60,12 @@
 <div class="modal_box" onclick= "event.stopPropagation();">
   <form method = "post" action="{% url 'Upld:ProjectCreateView' %}">
     {% csrf_token %}
-    <input git_link = "Git Hub Link" type="text"></input>
-    <input type="submit" value="Add"></input>
+    <input name = "name" type="text" id ="id_name"></input>
+    <input name = "git_link" type="text" id ="id_git_link"></input>
+    <input type="submit" value="submit"></input>
   </form>
  </div>
 </div>
+
 
 {% endblock content %}

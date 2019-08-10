@@ -4,4 +4,4 @@ from .models import GitHubProject
 class NewProjectForm(forms.ModelForm):
     class Meta:
         model = GitHubProject
-        fields = ['git_link',]
+        fields = ['name', 'git_link',]
