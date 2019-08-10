@@ -7,18 +7,28 @@
 
 <div class = "container">
   <div class = "container_title">
-  Success
+  Create New Project
   </div>
 
+{% if form.valid %}
 <a href = "{% url 'Upld:index' %}">
   <div class = "container_content">
+
     <ul>
    Successfully created new project!
-   </ul>
+   </ul
 
   </div>
   </a>
 </div>
+{% else %}
+<div class = "container_content">
+
+  {{ form.as_table }}
+
+<input type="submit" value="Add Project"></input>
+</div>
+{% endif %}
 
 
 {% endblock content %}
