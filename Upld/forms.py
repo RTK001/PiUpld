@@ -5,7 +5,7 @@ from .models import GitHubProject
 class NewProjectForm(forms.ModelForm):
     class Meta:
         model = GitHubProject
-        fields = ['name', 'git_link',]
+        fields = ['git_link',]
 
     def clean_git_link(self):
         data = self.cleaned_data['git_link']

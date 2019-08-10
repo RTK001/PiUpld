@@ -1,5 +1,6 @@
 import git
 import os
+import stat
 
 def validate_git_url(url):
     '''
@@ -21,3 +22,13 @@ def clone_repo(url, path):
     '''
     clone = git.Repo.clone_from(url, path)
     return clone
+
+def delete_project(path):
+    for root, dirs, files in os.walk(path, topdown=False):
+        for f in files:
+            filepath = os.path.join(root, f)
+            os.chmod(filepath, stat.S_IWUSR)
+            os.remove(filepath)
+        for d in dirs:
+            os.rmdir(os.path.join(root, d))
+    os.rmdir(root)
