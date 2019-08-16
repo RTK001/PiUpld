@@ -71,3 +71,14 @@ text, h1, h2 {
 .modal_box a {
   color: white;
 }
+
+.Selected {
+  color: #25ff00;
+  border: 2px solid white;
+  padding: 4px;
+}
+
+.DeSelected {
+  color: grey;
+
+}

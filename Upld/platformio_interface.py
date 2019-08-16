@@ -9,7 +9,7 @@ def get_devices():
         out, err = proc.communicate('')
         output = loads(out)
         if len(output) == 0:
-            return [{"Error": "No Devices Found"}]
+            return None
         for device in output:
             device['Hardware ID'] = "</br>".join(device.pop('hwid').split(" "))
             device['Port'] = device.pop('port')
