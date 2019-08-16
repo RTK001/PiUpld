@@ -27,7 +27,7 @@
 
 {% if devices %}
 <script type="text/javascript">
-  setupSelection("Boards", {% for device in devices %} "{{ device.port }}", {% endfor %});
+  setupSelection("Boards", [{% for device in devices %} "{{ device.port }}", {% endfor %}]);
 </script>
 {% endif %}
 
@@ -41,11 +41,17 @@
     <ul>
    {% for project in githubproject_list %}
 
-        <li> {{ project.name }} </li>
-
+        <div class=DeSelected id="project_{{ project.name }}"> {{ project.name }} </div>
+  {% empty %}
+        <div> Error: No Projects Found </div>
    {% endfor %}
    </ul>
 
+   {% if githubproject_list %}
+   <script type="text/javascript">
+     setupSelection("Projects", [{% for project in githubproject_list %} "project_{{ project.name }}", {% endfor %}]);
+   </script>
+   {% endif %}
 
    <button onclick="hideOrUnhide('addproject_modal', 'block')"> Add Project </button>
   </div>

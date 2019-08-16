@@ -25,21 +25,22 @@ var setupSelection = function(selectionName, elementIdsArray) {
   {
     elem = document.getElementById(elementIdsArray[i]);
     PiUpld_selections[selectionName].Elements[i] = elem;
-    console.log(elem.id);
     elem.onclick = function () {makeSelectedOnClick(this.id, selectionName)};
   }
 }
 
 var makeSelectedOnClick = function (selectedID, selectionName) {
-  console.log(selectedID);
   for (element in PiUpld_selections[selectionName].Elements)
   {
     elem = PiUpld_selections[selectionName].Elements[element];
-    console.log(elem.id == selectedID);
     if (elem.id == selectedID)
     {
-      elem.className = "Selected";
+      if (elem.className == "Selected")
+        {elem.className = "DeSelected";}
+      else
+        {elem.className = "Selected";}
       PiUpld_selections[selectionName].Selected = elem;
+
     }
     else {
       elem.className = "DeSelected";
