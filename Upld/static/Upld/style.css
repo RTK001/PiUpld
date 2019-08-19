@@ -80,5 +80,10 @@ text, h1, h2 {
 
 .DeSelected {
   color: grey;
+}
 
+.Terminal_iframe {
+  color: white;
+  border: none;
+  
 }

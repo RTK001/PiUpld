@@ -47,3 +47,7 @@ var makeSelectedOnClick = function (selectedID, selectionName) {
     }
   }
 }
+
+var reloadiFrame = function (frameID) {
+  document.getElementById(frameID).contentWindow.location.reload();
+}
