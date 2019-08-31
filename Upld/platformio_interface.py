@@ -27,7 +27,8 @@ def write_project_to_device(project_dir):
 
 class WriteToDevice():
     def __init__(self):
-        self.projectDir = project_dir
+        pass
+        #self.projectDir = project_dir
 
     def __iter__(self):
         '''
@@ -45,5 +46,5 @@ class WriteToDevice():
 
     def __next__(self):
         for line in self.proc.stdout:
-            return "<br>" + line
+            return "<br>" + line.decode("utf-8")
         raise StopIteration
