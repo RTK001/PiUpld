@@ -12,9 +12,10 @@
 
   <div class = "container_content">
   {% for device in devices %}
-    <div>
+    <div id="device['Hardware ID']">
       {% for key, item in device.items %}
           <div class=DeSelected id="{{ key }}"> {{ key }}: {{ item }}</div>
+          <br>
       {% endfor%}
     </div>
   {% empty %}
