@@ -15,3 +15,30 @@ def get_devices():
             device['Port'] = device.pop('port')
             device['Description'] = device.pop('description')
         return output
+
+
+def write_project_to_device(project_dir):
+    with subprocess.Popen(["platformio", "run", "upload",  "-d", project_dir,  "--json-output"],
+                            bufsize = 1,
+                            stdout = subprocess.PIPE,
+                            stderr = subprocess.PIPE,
+                            universal_newlines=False) as proc:
+        pass
+
+class WriteToDevice():
+    def __init__(self, project_dir):
+        self.projectDir = project_dir
+
+    def __iter__(self):
+        self.proc = subprocess.Popen(["platformio", "run", "upload",  "-d", self.projectDir,  "--json-output"],
+                                bufsize = 1,
+                                stdout = subprocess.PIPE,
+                                stderr = subprocess.PIPE,
+                                universal_newlines=True)
+
+        return self
+
+    def __next__(self):
+        for line in self.proc.stdout:
+            return "<br>" + line
+        raise StopIteration

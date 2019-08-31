@@ -14,7 +14,7 @@ class IndexView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['devices'] = get_devices()
         print(context)
-        context['streamed'] = StreamingHttpResponse(iteratorTest()).streaming_content
+        context['streamed'] = StreamingHttpResponse(WriteToDevice()).streaming_content
         return context
 
     def get_queryset(self):
@@ -51,11 +51,6 @@ class iteratorTest():
 
 
 
-'''
-def streaming_test(request):
-    response = StreamingHttpResponse(iteratorTest())
-    return response
-'''
 class StreamingTest(generic.ListView):
     template_name = 'Upld/StreamingTest.html'
     def get_queryset(self, **kwargs):
@@ -63,14 +58,7 @@ class StreamingTest(generic.ListView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.method.lower() == 'get':
-            response = StreamingHttpResponse(iteratorTest())
+            response = StreamingHttpResponse(WriteToDevice())
             return response
         else:
             return super(StreamingTest, self).dispatch(request, *args, **kwargs)
-'''
-    def render_to_response(self, context, **response_kwargs):
-        print("rendering")
-        print(context)
-        context['stream'] = StreamingHttpResponse(iteratorTest())
-        return super(StreamingTest, self).render_to_response(context, **response_kwargs)
-'''
