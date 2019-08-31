@@ -30,12 +30,17 @@ class WriteToDevice():
         self.projectDir = project_dir
 
     def __iter__(self):
+        '''
         self.proc = subprocess.Popen(["platformio", "run", "upload",  "-d", self.projectDir,  "--json-output"],
                                 bufsize = 1,
                                 stdout = subprocess.PIPE,
                                 stderr = subprocess.PIPE,
                                 universal_newlines=True)
-
+        '''
+        self.proc = subprocess.Popen(["platformio", "device", "list", "--json-output"],
+                                stdout = subprocess.PIPE,
+                                stderr = subprocess.PIPE,
+                                universal_newlines=False)
         return self
 
     def __next__(self):
