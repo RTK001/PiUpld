@@ -26,7 +26,7 @@ def write_project_to_device(project_dir):
         pass
 
 class WriteToDevice():
-    def __init__(self, project_dir):
+    def __init__(self):
         self.projectDir = project_dir
 
     def __iter__(self):
